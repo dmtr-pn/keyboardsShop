@@ -1,6 +1,5 @@
 <template>
     <div class="dark" v-bind:class="{actv: this.modal}" v-on:click="filter()"></div>
-    <Header />
     <Transition name="modal">
         <div v-if="this.modal" class="modal">
             <div class="modal__inner">
@@ -115,11 +114,8 @@
                 <button type="submit" class="filter__button">Apply</button>
             </div>
             <div class="main__">
-
-                <ProductItem :info="{name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '65%', cost: '120'}" />
-                <ProductItem :info="{name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '100%', cost: '100'}" />
-                <ProductItem :info="{name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '20%', cost: '12'}" />
-                <ProductItem :info="{name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '40%', cost: '10'}" />
+               
+               <ProductItem  v-for="item in data" :key="item.id" :info="item" />
                 
             </div>
         </div>
@@ -127,20 +123,24 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue'
 import ProductItem from '../components/ProductItem.vue'
 
 export default {
     name: "Products",
     components: {
-        Header,
         ProductItem
     },
     data() {
         return{
             modal: false,
             filterSize: ["100"],
-            filterCurrency: "USD"
+            filterCurrency: "USD",
+            data: [
+                {id: 0, name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '65%', cost: '120'},
+                {id: 1, name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '100%', cost: '100'},
+                {id: 2, name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '20%', cost: '12'},
+                {id: 3, name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '40%', cost: '10'}
+            ]
         }
     },
     methods: {

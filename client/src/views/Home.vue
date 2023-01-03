@@ -1,5 +1,4 @@
 <template>
-    <Header />
     <div class="main-name">
         Top selling
     </div>
@@ -20,24 +19,29 @@
         <div class="categories-">Categories</div>
         <div class="categories__grid">
 
-            <CategoriesItem :info="{color: 'black', name: 'Varmilo', category: 'Keyboards'}"/>
-            <CategoriesItem :info="{color: 'pink', name: 'Leopold', category: 'Keyboards'}"/>
-            <CategoriesItem :info="{color: 'blue', name: 'Ducky', category: 'Keyboards'}"/>
-            <CategoriesItem :info="{color: 'green', name: 'Vortex', category: 'Keyboards'}"/>
+            <CategoriesItem v-for="item in data" :key="item.id" :info="item"/>
 
         </div>
     </div>
 </template>
 
 <script>
-import Header from '../components/Header.vue'
 import CategoriesItem from '../components/CategoriesItem.vue'
 
 export default {
     name: 'Home',
     components: {
-        Header,
         CategoriesItem
+    },
+    data() {
+        return {
+            data: [
+                {id: 0, color: 'black', name: 'Varmilo', category: 'Keyboards'},
+                {id: 1, color: 'pink', name: 'Leopold', category: 'Keyboards'},
+                {id: 2, color: 'blue', name: 'Ducky', category: 'Keyboards'},
+                {id: 3, color: 'green', name: 'Vortex', category: 'Keyboards'}
+            ]
+        }
     }
 }
 </script>
