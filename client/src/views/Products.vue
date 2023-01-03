@@ -115,53 +115,12 @@
                 <button type="submit" class="filter__button">Apply</button>
             </div>
             <div class="main__">
-                <div class="main__item">
-                    <div class="main__item-img"></div>
-                    <div class="main__item-info">
-                        <div class="main__item-info-name">Varmilo Panda R2</div>
-                        <div class="main__item-info-size">65%</div>
-                        <div class="main__item-info-footer">
-                            <div class="main__item-info-footer-price">120 $</div>
-                            <button class="main__item-info-footer-button" type="submit">Add to cart</button>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="main__item">
-                    <div class="main__item-img"></div>
-                    <div class="main__item-info">
-                        <div class="main__item-info-name">Varmilo Panda R2</div>
-                        <div class="main__item-info-size">65%</div>
-                        <div class="main__item-info-footer">
-                            <div class="main__item-info-footer-price">120 $</div>
-                            <button class="main__item-info-footer-button" type="submit">Add to cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__item">
-                    <div class="main__item-img"></div>
-                    <div class="main__item-info">
-                        <div class="main__item-info-name">Varmilo Panda R2</div>
-                        <div class="main__item-info-size">65%</div>
-                        <div class="main__item-info-footer">
-                            <div class="main__item-info-footer-price">120 $</div>
-                            <button class="main__item-info-footer-button" type="submit">Add to cart</button>
-                        </div>
-                    </div>
-                </div>
+                <ProductItem :info="{name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '65%', cost: '120'}" />
+                <ProductItem :info="{name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '100%', cost: '100'}" />
+                <ProductItem :info="{name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '20%', cost: '12'}" />
+                <ProductItem :info="{name: 'Varmilo Panda R2', img: 'Varmilo_Panda_87_rus_10.jpg', size: '40%', cost: '10'}" />
                 
-                <div class="main__item">
-                    <div class="main__item-img"></div>
-                    <div class="main__item-info">
-                        <div class="main__item-info-name">Varmilo Panda R2</div>
-                        <div class="main__item-info-size">65%</div>
-                        <div class="main__item-info-footer">
-                            <div class="main__item-info-footer-price">120 $</div>
-                            <button class="main__item-info-footer-button" type="submit">Add to cart</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -169,11 +128,13 @@
 
 <script>
 import Header from '../components/Header.vue'
+import ProductItem from '../components/ProductItem.vue'
 
 export default {
     name: "Products",
     components: {
-        Header
+        Header,
+        ProductItem
     },
     data() {
         return{
@@ -335,65 +296,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
 }
-.main__item {
-    border-radius: 25px;
-    width: calc(33% - 11.21px);
-    background: linear-gradient(146.14deg, #FFFFFF 0%, #F7F7F7 100%);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-}
-.main__item-img {
-    background: url("../assets/Varmilo_Panda_87_rus_10.jpg");
-    background-position: center;
-    background-size: cover;
-    border-radius: 25px 25px 0 0;
-    height: 240px;
-}
-.main__item-info {
-    padding: 20px;
-}
-.main__item-info-name {
-    font-weight: 700;
-    font-size: 28px;
-}
-.main__item-info-size {
-    font-weight: 400;
-    font-size: 24px;    
-}
-.main__item-info-footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-.main__item-info-footer-price {
-    font-weight: 700;
-    font-size: 28px;
-}
-.main__item-info-footer-button {
-    padding: 10px 25px;
-    background: linear-gradient(99.04deg, #353535 0.88%, #000000 100%);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
-    color: #FFFFFF;
-    font-weight: 700;
-    font-size: 20px;
-    border: none;
-}
-@media screen  and (max-width: 1024px){
-    .main__item-info-footer {
-        flex-direction: column;
-        align-items: center;
-    }
-    .main__item-info-footer-button{
-        width: 100%;
-    }
-    .main__item {
-        width: calc(50% - 11.21px);
-    }
-}
 @media screen  and (max-width: 768px) { 
-    .main__item {
-        width: 100%;
-    }
     .filter__ {
         display: none;
     }
