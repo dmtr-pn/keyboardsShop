@@ -17,6 +17,7 @@ ul {
 }
 a {
     text-decoration: none;
+    color: #000;
 }
 select:focus {
     outline: none;

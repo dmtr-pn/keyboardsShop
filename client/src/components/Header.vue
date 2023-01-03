@@ -4,12 +4,12 @@
             <div class="modal__inner">
                 <ul class="he">
                     <li class="header__nav-links-item-modal">
-                        <a class="item-text" href="#">
+                        <router-link class="item-text" to="/products" v-on:click="blur()">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 11H26L24.8889 26H7.11111L6 11Z" stroke="black" stroke-width="2" stroke-linejoin="round"/>
                                 <path d="M11.5555 13.2222V6H20.4444V13.2222" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M11.5555 21.5556H20.4444" stroke="black" stroke-width="2" stroke-linecap="round"/>
-                            </svg> Shop</a>
+                            </svg> Shop</router-link>
                     </li>
                     <li class="header__nav-links-item-modal">
                         <a class="item-text" href="#">
@@ -32,7 +32,7 @@
     <div class="dark" v-bind:class="{actv: this.modal}" v-on:click="blur()"></div>
     <header class="container">
         <div class="header__">
-            <div class="header__logo">Keyboards</div>
+            <router-link class="header__logo" to='/'>Keyboards</router-link>
             <div class="header__search">
                 <div class="header__search-icon">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +44,7 @@
             <div class="header__nav">
                 <ul class="header__nav-links">
                     <li class="header__nav-links-item">
-                        <a class="item-text" href="#">Shop</a>
+                        <router-link class="item-text" to="/products">Shop</router-link>
                     </li>
                     <li class="header__nav-links-item">
                         <a class="item-text" href="#">Recommendations</a>
