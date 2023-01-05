@@ -1,7 +1,6 @@
 <template>
-    <div class="dark" v-bind:class="{actv: this.modal}" v-on:click="filter()"></div>
     <Transition name="modal">
-        <div v-if="this.modal" class="modal">
+        <div v-if="this.modal" class="modal" id="modal">
             <div class="modal__inner">
 
                 
@@ -114,8 +113,8 @@
                 <button type="submit" class="filter__button">Apply</button>
             </div>
             <div class="main__">
-               
-               <ProductItem  v-for="item in data" :key="item.id" :info="item" />
+                
+                <ProductItem  v-for="item in data" :key="item.id" :info="item" />
                 
             </div>
         </div>
@@ -145,13 +144,23 @@ export default {
     },
     methods: {
         filter() {
-            this.modal = !this.modal;
-            if(this.modal){
-                document.getElementById("app").classList.add("blur")
+            if(!this.modal){
+                this.modal = true
+                this.$store.commit('setDark', true)
             }else {
-                document.getElementById("app").classList.remove("blur")
+                this.modal = false
+                this.$store.commit('setDark', false)
             }
         }
+    },
+    mounted() {
+        this.$store.subscribe((mutation, state) => {
+            switch(mutation.type) {
+                case 'setDark':
+                    this.modal = mutation.payload
+                break;
+            } 
+        })
     }
 }
 </script>
@@ -249,20 +258,6 @@ export default {
 }
 .modal__inner {
     padding: 40px 20px;
-}
-.dark {
-    visibility: hidden;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: rgb(0, 0, 0, .5);
-    opacity: 0;
-    transition: opacity .3s;
-    z-index: 99;
-}
-.dark.actv {
-    visibility: visible;
-    opacity: 1;
 }
 
 .filter__mobile {

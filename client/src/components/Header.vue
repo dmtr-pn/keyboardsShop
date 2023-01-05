@@ -97,21 +97,6 @@ export default {
   opacity: 0;
 }
 
-.dark {
-    visibility: hidden;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: rgb(0, 0, 0, .5);
-    opacity: 0;
-    transition: opacity .3s;
-    z-index: 99;
-}
-.dark.actv {
-    visibility: visible;
-    opacity: 1;
-}
-
 .header__logo {
     font-weight: 700;
     font-size: 32px;

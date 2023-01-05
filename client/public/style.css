@@ -10,6 +10,21 @@ body {
 .blur .modal, .dark {
     filter: blur(0px);
 }
+.dark {
+    visibility: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgb(0, 0, 0, .5);
+    opacity: 0;
+    transition: opacity .3s;
+    z-index: 99;
+}
+.dark.actv {
+    visibility: visible;
+    opacity: 1;
+}
+
 ul {
     margin: 0;
     padding: 0;
