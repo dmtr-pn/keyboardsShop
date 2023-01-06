@@ -26,6 +26,13 @@ export default {
 
     width: calc(25% - 55px);
     background-color: #eee;
+    transition: .2s;
+}
+.categories__grid-item:hover {
+    scale: 1.05;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    transition: .2s;
+    cursor: pointer;
 }
 .categories__grid-item.black {
     background: linear-gradient(312.91deg, #000000 0%, #353535 100%);
