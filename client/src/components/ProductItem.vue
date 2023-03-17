@@ -8,7 +8,7 @@
             <div class="main__item-info-size">{{this.info.size}}</div>
             <div class="main__item-info-footer">
                 <div class="main__item-info-footer-price">{{this.info.cost}} $</div>
-                <button class="main__item-info-footer-button" type="submit">Add to cart</button>
+                <button class="main__item-info-footer-button" type="submit" v-on:click="addToCart(this.info)">Купить</button>
             </div>
         </div>
     </div>
@@ -21,6 +21,17 @@ export default {
     data() {
         return {
             imgUrl: `url(${require('@/assets/' + this.info.img)})`
+        }
+    },
+    methods: {
+        addToCart(item) { 
+            this.$store.commit('addToCart', item);
+            this.$notify({
+                title: "Успех",
+                text: 'Товар успешно добавлен',
+                duration: 1000,
+                type: 'success',
+            });
         }
     }
 }

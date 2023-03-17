@@ -2,6 +2,7 @@
     <div class="dark" id="dark" v-on:click="unDark()"></div>
     <Header />
     <router-view />
+    <notifications position="top right"/>
 </template>
 
 <script>
@@ -18,3 +19,7 @@ export default {
     }
 }
 </script>
+
+<style>
+@import url('../public/style.css');
+</style>

@@ -4,12 +4,50 @@ body {
     font-family: 'Nunito', sans-serif;
     margin: 0;
 }
+
+button {
+    border: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+input {
+    box-sizing: border-box;
+}
+
+.notification-title {
+    font-size: 18px;
+}
+.notification-content {
+    font-size: 16px;
+}
+
 .blur > * {
     filter: blur(5px);
 }
 .blur .modal, .dark {
     filter: blur(0px);
 }
+
+.modal-enter-active, .modal-leave-active {
+	transition: all 0.3s ease-in-out;
+}
+.modal-enter-from,
+.modal-leave-to {
+  transform: translateY(30px);
+  opacity: 0;
+}
+.modal {
+    position: fixed;
+    z-index: 999;
+    bottom: 0px;
+    width: 100%;
+    background: #fff;
+    border-radius: 25px 25px 0 0;
+}
+.modal__inner {
+    padding: 40px 20px;
+}
+
 .dark {
     visibility: hidden;
     position: fixed;

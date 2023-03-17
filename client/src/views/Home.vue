@@ -1,6 +1,6 @@
 <template>
     <div class="main-name">
-        Top selling
+        Топ продаж
     </div>
     <div class="main__ container">
         <div class="main__img"></div>
@@ -11,12 +11,12 @@
             </div>
             <div class="main__content-price">
                 <div class="main__content-price-price">100 $</div>
-                <button class="main__content-price-btn" type="submit">Add to cart</button>
+                <button class="main__content-price-btn" type="submit" v-on:click="test()">Купить</button>
             </div>
         </div>
     </div>
     <div class="categories__ container">
-        <div class="categories-">Categories</div>
+        <div class="categories-">Категории</div>
         <div class="categories__grid">
 
             <CategoriesItem v-for="item in data" :key="item.id" :info="item"/>
@@ -27,6 +27,7 @@
 
 <script>
 import CategoriesItem from '../components/CategoriesItem.vue'
+import test from '../services/user.js'
 
 export default {
     name: 'Home',
@@ -36,11 +37,31 @@ export default {
     data() {
         return {
             data: [
-                {id: 0, color: 'black', name: 'Varmilo', category: 'Keyboards'},
-                {id: 1, color: 'pink', name: 'Leopold', category: 'Keyboards'},
-                {id: 2, color: 'blue', name: 'Ducky', category: 'Keyboards'},
-                {id: 3, color: 'green', name: 'Vortex', category: 'Keyboards'}
+                {id: 0, color: 'black', name: 'Varmilo', category: 'Клавиатуры', categoryKeyboard: 'varmilo'},
+                {id: 1, color: 'pink', name: 'Leopold', category: 'Клавиатуры', categoryKeyboard: 'leopold'},
+                {id: 2, color: 'blue', name: 'Ducky', category: 'Клавиатуры', categoryKeyboard: 'ducky'},
+                {id: 3, color: 'green', name: 'Vortex', category: 'Клавиатуры', categoryKeyboard: 'vortex'}
             ]
+        }
+    },
+    methods: {
+        test() {
+            test.test().then(resp => {
+                this.$notify({
+                    title: "Успех",
+                    text: resp.data.response.message,
+                    duration: 1000,
+                    type: 'success',
+                });
+            }, err => {
+                this.$store.dispatch('logout')
+                this.$notify({
+                    title: "Ошибка",
+                    text: err.response.data.error,
+                    duration: 5000,
+                    type: 'error',
+                });
+            })
         }
     }
 }
