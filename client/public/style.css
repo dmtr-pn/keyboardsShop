@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,600&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+}
+
+button {
+    border: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+input {
+    box-sizing: border-box;
+}
+
+.notification-title {
+    font-size: 18px;
+}
+.notification-content {
+    font-size: 16px;
+}
+
+.blur > * {
+    filter: blur(5px);
+}
+.blur .modal, .dark {
+    filter: blur(0px);
+}
+
+.modal-enter-active, .modal-leave-active {
+	transition: all 0.3s ease-in-out;
+}
+.modal-enter-from,
+.modal-leave-to {
+  transform: translateY(30px);
+  opacity: 0;
+}
+.modal {
+    position: fixed;
+    z-index: 999;
+    bottom: 0px;
+    width: 100%;
+    background: #fff;
+    border-radius: 25px 25px 0 0;
+}
+.modal__inner {
+    padding: 40px 20px;
+}
+
+.dark {
+    visibility: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgb(0, 0, 0, .5);
+    opacity: 0;
+    transition: opacity .3s;
+    z-index: 99;
+}
+.dark.actv {
+    visibility: visible;
+    opacity: 1;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+select:focus {
+    outline: none;
+}
+select {
+    appearance: none;
+}
+button:hover {
+    cursor: pointer;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 0 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    
+}
