@@ -5,5 +5,5 @@ export default {
         "PASS": "",
         "DB": "keyboards"     
     },
-    "SERCRET_KEY": "FGoaKGPEogNi352Bdfd"
+    "SERCRET_KEY": ""
 }
